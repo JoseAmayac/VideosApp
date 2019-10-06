@@ -64,6 +64,14 @@ section {
   display: block;
 }
 
+.navbar{
+  background-color: #0E66B1 !important;
+}
+
+i{
+  color:white;
+}
+
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;

@@ -1,0 +1,18 @@
+.cabeCard{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 28px !important; 
+    background-color: #FFD400 !important;
+}
+
+.tamCard{
+    height: 100% !important;
+}
+
+.enlaceEliminar {
+    color: black;
+}
+
+.enlaceEliminar:hover{
+    color: red;
+}
