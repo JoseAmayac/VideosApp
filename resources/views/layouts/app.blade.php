@@ -20,14 +20,22 @@
     
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="css/estiloLista.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/welcome.css">
+=======
+    
+>>>>>>> 18288ff72508e56e55abc2018fa80dc06dd06c53
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
+<<<<<<< HEAD
                     <img src="images/logo-Web-blanco.png" class="imagen_logo" alt="">{{ config('app.name', 'VideosApp') }}
+=======
+                    {{ config('app.name', 'Laravel') }}
+>>>>>>> 18288ff72508e56e55abc2018fa80dc06dd06c53
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -44,11 +52,19 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item ">
+<<<<<<< HEAD
                                 <a class="nav-link text-white d-inline " href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link  text-white d-inline" href="{{ route('register') }}"><i class="fas fa-user-plus"></i>  {{ __('Register') }}</a>
+=======
+                                    <i class="fas fa-sign-in-alt"></i>  <a class="nav-link text-white d-inline" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                        <i class="fas fa-user-plus"></i>  <a class="nav-link  text-white d-inline" href="{{ route('register') }}">{{ __('Register') }}</a>
+>>>>>>> 18288ff72508e56e55abc2018fa80dc06dd06c53
                                 </li>
                             @endif
                         @else
