@@ -19,6 +19,14 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    public function videos(){
+        return $this->hasMany(Video::class);
+    }
+
+    public function comentarios(){
+        return $this->hasMany(Comentario::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

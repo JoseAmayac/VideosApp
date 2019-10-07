@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Video;
+use Session;
 
 class videosController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,7 @@ class videosController extends Controller
     public function index()
     {
         $videos = Video::all();
+        //
         return view('listar',compact('videos'));
     }
 
@@ -81,6 +88,23 @@ class videosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $video = Video::find($id);
+        $retorno = 0;
+        $nombre = "";
+        if($video)
+        {
+            $nombre = $video->nombre;
+            $retorno =  $video->delete();
+        }else{
+            $nombre = "Sin nombre";
+        }
+
+        if($retorno == 1)
+        {
+            Session::flash('status','El video '. '"'.$nombre.'"' .' ha sido eliminado' );
+        }else{
+            Session::flash('error','No se pudo eliminar el video' );
+        }
+        return redirect('/lista');
     }
 }

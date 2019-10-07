@@ -13,14 +13,14 @@ class CreateComentariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('comentario', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('video_id');
-            $table->string('users_email');
+            $table->unsignedBigInteger('videos_id');
+            $table->unsignedBigInteger('users_id');
             $table->text('descripcion');
             $table->timestamps();
-            $table->foreign('video_id')->references('id')->on('videos');
-            $table->foreign('users_email')->references('email')->on('users');
+            $table->foreign('videos_id')->references('id')->on('videos');
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 

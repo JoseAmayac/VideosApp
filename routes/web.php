@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/lista',['uses'=>'videosController@index']);
+
+Route::post('/delete/{id}',['uses'=>'videosController@destroy']);
+
