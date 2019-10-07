@@ -86,11 +86,12 @@ class videosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $video = Video::find($id);
         $retorno = 0;
         $nombre = "";
+        //$otro_id = $request -> input('id_video_eliminar');
         if($video)
         {
             $nombre = $video->nombre;
@@ -101,7 +102,7 @@ class videosController extends Controller
 
         if($retorno == 1)
         {
-            Session::flash('status','El video '. '"'.$nombre.'"' .' ha sido eliminado' );
+            Session::flash('status','El video '. '"'.$nombre.'"' .' ha sido eliminado');
         }else{
             Session::flash('error','No se pudo eliminar el video' );
         }

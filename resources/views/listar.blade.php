@@ -31,7 +31,6 @@
         @else
         @foreach ($videos as $video)
         
-<<<<<<< HEAD
             <div class="col-md-3 mb-4 bt-3">
                 <div class="card tamCard">
                     <div class="card-header bg-info cabeCard d-flex justify-content-center" >
@@ -39,16 +38,30 @@
                         <div class="d-flex ml-auto">
                             <form action="{{ url('/delete', ['id' => $video->id]) }}" method="POST">
                                 {{ csrf_field() }}
-                                <button type="submit" class="btn btn-lg"><i class="fa fa-trash-o enlaceEliminar"></i></button>
+                                {{-- <input type="hidden" name="id_video_eliminar" value=" {{ $video->id }} "> --}}
+                                <button type="submit" onclick="return confirm('¿Seguro de desea eliminar el video?')" class="btn btn-lg"><i class="fa fa-trash-o enlaceEliminar"></i></button>
+
+                                {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLongTitle">Confirmación</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          El video será borrado, ¿Seguro?
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                          <button type="submit" class="btn btn-primary">Aceptar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div> --}}
                             </form>
                         </div>
-=======
-            <div class="col-md-3">
-                <div class="card m-2 tamCard">
-                    <div class="card-header bg-info cabeCard d-flex justify-content-center" >
-                        <h3 class="card-title text-center text-dark font-weight-bold d-inline">{{$video->nombre}}</h3>
-                        <a href="#" class="ml-auto"><i class="fa fa-trash-o enlaceEliminar"></i></a>
->>>>>>> 18288ff72508e56e55abc2018fa80dc06dd06c53
                     </div>
                     <div class="card-body">
                         <h4> {{ $video->descripcion }} </h4>  
@@ -69,8 +82,5 @@
         @endforeach
         @endif
     </div>
-<<<<<<< HEAD
     </div>
-=======
->>>>>>> 18288ff72508e56e55abc2018fa80dc06dd06c53
 @endsection
