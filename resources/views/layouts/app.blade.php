@@ -80,6 +80,7 @@
         </main>
     </div>
 
+    <script src="js/lista.js"> </script>
     <script src="https://kit.fontawesome.com/003be2dce0.js" crossorigin="anonymous"></script>
 </body>
 </html>

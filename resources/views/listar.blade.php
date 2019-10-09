@@ -22,9 +22,8 @@
 
     <div class="row">
         @if ($videos-> isEmpty())
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
-                <div class="">
+            <div class="col-md-12 ">
+                <div class="jumbotron">
                     <h1 class="text-center">No hay videos publicados</h1>
                 </div>
             </div>
@@ -36,12 +35,18 @@
                     <div class="card-header bg-info cabeCard d-flex justify-content-center" >
                         <h3 class="card-title text-center text-dark font-weight-bold d-inline">{{$video->nombre}}</h3>
                         <div class="d-flex ml-auto">
-                            <form action="{{ url('/delete', ['id' => $video->id]) }}" method="POST">
+                            <form action="{{ url('/delete') }}" id="formulario_borrado" method="POST">
                                 {{ csrf_field() }}
                                 {{-- <input type="hidden" name="id_video_eliminar" value=" {{ $video->id }} "> --}}
-                                <button type="submit" onclick="return confirm('¿Seguro de desea eliminar el video?')" class="btn btn-lg"><i class="fa fa-trash-o enlaceEliminar"></i></button>
+                                {{-- <script>
+                                    cambiarId(id)
+                                    {
+                                        console.log(id)
+                                    }
+                                </script> --}}
+                                <button type="button" onclick=" cambiarId( {{ $video->id }} )" data-toggle="modal" data-target="#exampleModalLong" class="btn btn-lg"><i class="fa fa-trash-o enlaceEliminar"></i></button>
 
-                                {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
@@ -59,7 +64,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -67,7 +72,9 @@
                         <h4> {{ $video->descripcion }} </h4>  
                         <input type="hidden" value=" {{$video->id}} " name="id_video_eliminar" id="id_video">
                         <p>Subido por:  {{ $video->users->name}} </p>
-                        {{$video->categorias->descripcion }}
+                        <div class="pt-3">
+                            {{$video->categorias->descripcion }}
+                        </div>
                     </div>
                     <div class="d-flex card-footer text-muted">
                         <div class="mr-auto">
